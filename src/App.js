@@ -89,6 +89,7 @@ const App = () => {
                 label: 'Points',
                 fill: false,
                 data: ptsArray,
+                pointBackgroundColor: '#ffffff',
               }
             ],
           });
@@ -115,6 +116,7 @@ const App = () => {
                 label: 'Assists',
                 fill: false,
                 data: astArray,
+                pointBackgroundColor: '#ffffff'
               }
             ],
           });
@@ -135,12 +137,14 @@ const App = () => {
             };
             setChartData({
               labels: blkDateArray,
+              labelString: 'white',
               datasets: [
                 {
                   borderColor: '#ffffff',
                   label: 'Blocks',
                   fill: false,
                   data: blkArray,
+                  pointBackgroundColor: '#ffffff'
                 }
               ],
             });
@@ -165,22 +169,19 @@ const App = () => {
         <option value="blk">Blocks</option>
       </select>
       <div style={{height: "610px", width: "1100px"}} className="graph">
-        <Line data={chartData} options={{scales:{
+        <Line data={chartData} options={{responsive:true, scales:{
           yAxes: [
             {
               ticks:{
                 autoSkip: true,
                 maxTicksLimit: 10,
                 beginAtZero: true,
+                fontColor: 'white'
               },
               gridLines: {
                 color: 'white',
-                // display: false,
-                // borderColor: 'white',
                 zeroLineColor: 'white'
-                
               }
-            
             }
           ],
           xAxes:[
@@ -189,15 +190,18 @@ const App = () => {
                 autoSkip: true,
                 maxTicksLimit: 10,
                 beginAtZero: true,
+                fontColor: 'white'
+              },
+              scaleLabel:{
+                display: true,
+                labelString: 'Date',
+                fontColor: 'white'
               },
               gridLines: {
                 color: 'white',
-                // display: false,
-                // zeroLineColor: 'white'
-                
+                zeroLineColor: 'white'
               }
             }
-
           ],
         }}}/>
       </div>
@@ -205,57 +209,4 @@ const App = () => {
   )
 };
 
-export default App
-
-
-// import React, {useState, useEffect} from 'react';
-// import Pagination from './components/Pagination'
-// import axios from 'axios';
-// import './App.css';
-
-// const App = () => {
-//   const [pokemonData, setPokemonData] = useState([]);
-//   const [loading, setLoading] = useState(true);
-//   const [currentUrl, setCurrentUrl] = useState(`https://pokeapi.co/api/v2/pokemon`);
-//   const [nextUrl, setNextUrl] = useState('');
-//   const [prevUrl, setPrevUrl] = useState('');
-
-//   useEffect(() => {
-//     async function fetchAPI() {
-//       let response = await axios.get(currentUrl);
-//       setPokemonData(response.data.results);
-//       setNextUrl(response.data.next);
-//       setPrevUrl(response.data.previous);
-//       setLoading(false)
-//       console.log(response.data)
-//     }
-//     fetchAPI()
-//   },[currentUrl])
-
-//   //Pagination
-//   const gotoNextPage = () => {
-//     setLoading(true)
-//     setCurrentUrl(nextUrl)
-//   };
-
-//   const gotoPrevPage = () => {
-//     setLoading(true)
-//     setCurrentUrl(prevUrl)
-//   }
-
-//   return(
-//     <div>
-//       {loading ? (<h1>Loading..</h1>) : (
-//        <div className="grid-container">
-//          {pokemonData.map(pokemon => <p key={pokemon.name}>{pokemon.name}</p>)}
-//          <Pagination 
-//           gotoNextPage={nextUrl ? gotoNextPage: null} 
-//           gotoPrevPage={prevUrl ? gotoPrevPage: null}
-//         />
-//        </div>
-//       )}
-//     </div>
-//   )
-// }
-
-// export default App;
+export default App;

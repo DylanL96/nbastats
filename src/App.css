@@ -8,14 +8,17 @@ Table{
   margin-top: 50px;
 }
 
-.grid-container {
-  border: 1px solid black;
+tr{
   text-align: center;
-  width: 70%;
-  display: grid;
-  margin: 0 auto;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 10px;
+}
+
+td{
+  text-align: center;
+}
+
+td:hover{
+  background-color: rgb(170, 167, 167);
+  opacity: 0.9;
 }
 
 .form-input{
@@ -64,7 +67,7 @@ Table{
 .image{
   border-radius: 50%;
   background-color: white;
-  margin-top: 34px;
+  margin-top: 25px;
 }
 
 .test{
@@ -73,6 +76,7 @@ Table{
 
 .team-banner{
   border-bottom-right-radius: 10px;
+  margin-top: 8px;
 }
 
 h3{
@@ -99,5 +103,8 @@ h3{
 
 .menu:hover{
   opacity: 0.6;
+}
+
+.menu:focus{
   outline: none;
 }

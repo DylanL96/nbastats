@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import picture from '../helpers/images/picture.png';
 import playerImages from '../helpers/playerImages';
 import typeColors from '../helpers/typeColors';
